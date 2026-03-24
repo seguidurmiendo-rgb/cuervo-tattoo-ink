@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cuervo Tattoo Ink - Estudio de tatuajes profesionales y muralismo artístico por Fabio. Arte en piel y espacios urbanos en GOTO10.COM.AR.">
+    <meta name="keywords" content="tattoo, tatuajes, murales, arte, graffiti, cuervo tattoo, aquellos tiempos">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cuervo Tattoo Ink | Art & Soul">
+    <meta property="og:description" content="Explora el portfolio de tatuajes y murales de Fabio. Agenda tu turno vía WhatsApp.">
+    <meta property="og:type" content="website">
+    
+    <title>Cuervo Tattoo Ink | Art & Soul</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Metal+Mania&family=Outfit:wght@300;400;700&family=Pirata+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="cuervo_tattoo.ink/WhatsApp Image 2026-03-19 at 18.28.47.jpeg" alt="Cuervo Logo" class="logo-img">
+                CUERVO<span>TATTOO INK</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#murales">Murales</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content container">
+                <h1 class="reveal-text">CUERVO</h1>
+                <h2 class="script-font teal-text">Tattoo Ink</h2>
+                <p class="hero-subtitle">Arte en piel, historias para siempre.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="btn btn-primary">Agendar Turno</a>
+                    <a href="#portfolio" class="btn btn-outline">Ver Trabajos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section container">
+            <div class="section-header">
+                <h2 class="title-bg">Trabajos Recientes</h2>
+                <p>Explora nuestras últimas piezas de arte en piel.</p>
+            </div>
+            <div class="gallery" id="tattoo-gallery">
+                <!-- Las imágenes se cargarán dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Murales Section (Aquellos Tiempos) -->
+        <section id="murales" class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="title-bg">Aquellos Tiempos</h2>
+                    <p class="script-font teal-text" style="font-size: 2rem;">Murales & Arte Público</p>
+                </div>
+                <div class="gallery" id="mural-gallery">
+                    <!-- Las imágenes se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="section container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>¿Listo para tu próximo Tattoo?</h3>
+                    <p>Cuéntanos tu idea y agenda una cita en nuestro estudio.</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/cuervo_tattoo.ink/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/5491127525025" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/aquellostiempos.acuna" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        </div>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <input type="text" id="contact-name" placeholder="Nombre completo" required>
+                    <input type="email" id="contact-email" placeholder="Correo electrónico" required>
+                    <textarea id="contact-msg" placeholder="Describe tu idea, zona del cuerpo y tamaño aproximado..." rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Propuesta vía WhatsApp</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <button class="lightbox-btn prev-btn">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Vista Previa">
+        </div>
+        <button class="lightbox-btn next-btn">&#10095;</button>
+        <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+            <!-- Las miniaturas se generarán con JS -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Cuervo Tattoo Ink. Ubicado en GOTO10.COM.AR</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
