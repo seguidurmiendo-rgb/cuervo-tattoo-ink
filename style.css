@@ -588,6 +588,18 @@ footer {
     font-size: 0.8rem;
 }
 
+footer a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--accent-red);
+    text-shadow: 0 0 10px rgba(255, 0, 60, 0.4);
+}
+
 /* --- Mobile Responsive --- */
 .mobile-menu-btn {
     display: none;
