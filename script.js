@@ -71,7 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'cuervo_tattoo.ink/2025-11-09_00-01-52_UTC_1.jpg',
         'cuervo_tattoo.ink/WhatsApp%20Image%202026-03-19%20at%2018.28.47.jpeg',
         'cuervo_tattoo.ink/WhatsApp%20Image%202026-03-24%20at%2015.49.55.jpeg',
-        'cuervo_tattoo.ink/WhatsApp%20Video%202026-03-24%20at%2015.40.04.mp4'
+        'cuervo_tattoo.ink/WhatsApp%20Video%202026-03-24%20at%2015.40.04.mp4',
+        'cuervo_tattoo.ink/WhatsApp%20Video%202026-03-24%20at%2015.59.33.mp4'
     ];
 
     const muralImages = [
