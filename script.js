@@ -31,6 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Preloader Removal
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 600); // Breve delay para asegurar suavidad
+        }
+    });
+
     // Listas de imágenes (Carga Masiva - 200+ imágenes)
     const tattooImages = [
         'cuervo_tattoo.ink/2023-09-03_17-58-21_UTC_1.jpg', 'cuervo_tattoo.ink/2023-09-03_17-58-21_UTC_2.jpg',

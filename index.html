@@ -16,11 +16,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=Metal+Mania&family=Outfit:wght@300;400;700&family=Pirata+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- --- Preloader --- -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="cuervo_tattoo.ink/WhatsApp%20Image%202026-03-19%20at%2018.28.47.jpeg" alt="Logo Cuervo" class="preloader-logo">
+            <div class="preloader-bar-container">
+                <div class="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <nav class="container">
             <div class="logo">
@@ -59,7 +69,7 @@
         <section id="portfolio" class="section container">
             <div class="section-header">
                 <h2 class="title-bg">Trabajos Recientes</h2>
-                <p>Explora nuestras últimas piezas de arte en piel.</p>
+                <p class="script-font teal-text" style="font-size: 2rem;">Explora nuestras últimas piezas de arte en piel.</p>
             </div>
             <div class="gallery" id="tattoo-gallery">
                 <!-- Las imágenes se cargarán dinámicamente -->
@@ -75,6 +85,22 @@
                 </div>
                 <div class="gallery" id="mural-gallery">
                     <!-- Las imágenes se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- --- Sección El Estudio --- -->
+        <section id="studio" class="section">
+            <div class="container">
+                <div class="studio-wrapper">
+                    <div class="studio-text">
+                        <h2 class="title-bg">El Alma Detrás de la Aguja</h2>
+                        <p>Mi vínculo con el arte nació de muy chico; mi abuela fue mi primera maestra y quien me transmitió esa pasión por crear. Con los años, seguí ese camino, estudié y me perfeccioné como muralista y grabador.</p>
+                        <p>Hace un tiempo, toda esa experiencia encontró un nuevo lienzo: la piel. Hoy, a muy poco de recibirme como profesor de arte, entiendo el tatuaje no solo como un oficio, sino como la síntesis de una vida dedicada al dibujo, las formas y el color.</p>
+                    </div>
+                    <div class="studio-image">
+                        <img src="cuervo_tattoo.ink/2023-09-03_18-28-56_UTC_3.jpg" alt="Fabio Acuña Tatuando" class="img-fluid reveal-image">
+                    </div>
                 </div>
             </div>
         </section>
@@ -120,6 +146,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
