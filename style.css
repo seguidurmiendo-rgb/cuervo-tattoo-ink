@@ -772,6 +772,17 @@ footer a:hover {
         grid-template-columns: 1fr;
         padding: 40px 20px;
     }
+
+    .studio-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .studio-image {
+        order: -1;
+    }
     
     .hero-btns {
         flex-direction: column;
