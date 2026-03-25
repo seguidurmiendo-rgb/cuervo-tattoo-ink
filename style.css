@@ -276,6 +276,7 @@ nav {
     background-color: var(--card-bg);
     border-radius: 4px;
     cursor: pointer;
+    position: relative;
 }
 
 .gallery-item img {
@@ -283,12 +284,23 @@ nav {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
-    filter: grayscale(0.5);
+    filter: grayscale(0.6) brightness(0.8);
 }
 
 .gallery-item:hover img {
+    filter: grayscale(0) brightness(1.2) contrast(1.1);
+    animation: glitch-main 0.4s 1 linear; /* Vuelve a la normalidad al terminar */
     transform: scale(1.05);
-    filter: grayscale(0);
+}
+
+/* --- Glitch Effect Animations --- */
+@keyframes glitch-main {
+    0% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, -1px); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 1px); }
+    40% { clip-path: inset(10% 0 80% 0); transform: translate(-1px, -2px); }
+    60% { clip-path: inset(40% 0 50% 0); transform: translate(1px, 2px); }
+    80% { clip-path: inset(80% 0 20% 0); transform: translate(-2px, 1px); }
+    100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
 }
 
 /* --- Lightbox Modal --- */
