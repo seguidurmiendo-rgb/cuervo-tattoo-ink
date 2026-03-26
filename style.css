@@ -13,6 +13,28 @@
     --transition: all 0.3s ease;
 }
 
+@keyframes neon-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 
+            0 0 7px rgba(255, 0, 60, 0.3),
+            0 0 10px rgba(255, 0, 60, 0.3),
+            0 0 21px rgba(255, 0, 60, 0.3),
+            0 0 42px var(--accent-red),
+            0 0 82px var(--accent-red),
+            0 0 92px var(--accent-red);
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+        opacity: 0.8;
+    }
+}
+
+.neon-flicker-red {
+    color: var(--accent-red) !important;
+    text-shadow: 0 0 15px rgba(255, 0, 60, 0.4);
+    animation: neon-flicker 5s infinite;
+}
+
 /* --- Preloader --- */
 #preloader {
     position: fixed;
@@ -38,7 +60,8 @@
 }
 
 .preloader-logo {
-    width: 200px; /* Un poco más grande */
+    width: 200px;
+    /* Un poco más grande */
     height: auto;
     margin-bottom: 25px;
     filter: invert(1);
@@ -46,9 +69,20 @@
 }
 
 @keyframes preloader-pulse {
-    0% { transform: scale(0.95); opacity: 0.6; }
-    50% { transform: scale(1.05); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.6; }
+    0% {
+        transform: scale(0.95);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.6;
+    }
 }
 
 .preloader-bar-container {
@@ -68,8 +102,13 @@
 }
 
 @keyframes preloader-loading {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 * {
@@ -84,8 +123,8 @@ html {
 
 body {
     background-color: var(--bg-color);
-    background-image: linear-gradient(rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 0.8)), 
-                      url('bg-art.png');
+    background-image: linear-gradient(rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 0.8)),
+        url('bg-art.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -325,17 +364,26 @@ nav {
 /* --- Gallery Grid --- */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    /* Más aire entre fotos */
+    padding: 20px 0;
 }
 
 .gallery-item {
+    position: relative;
     aspect-ratio: 1/1;
     overflow: hidden;
-    background-color: var(--card-bg);
-    border-radius: 4px;
     cursor: pointer;
-    position: relative;
+    border-radius: 25px;
+    background-color: #0d0d0d;
+    border: 2px solid rgba(192, 132, 252, 0.65); /* Neón mucho más potente */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 1),
+        0 0 45px rgba(192, 132, 252, 0.45), /* Brillo exterior masivo */
+        inset 0 0 20px rgba(192, 132, 252, 0.2); /* Brillo interior sobre la foto */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: brightness(0.9);
 }
 
 .gallery-item img {
@@ -346,20 +394,55 @@ nav {
     filter: grayscale(0.6) brightness(0.8);
 }
 
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 1),
+        0 0 65px rgba(192, 132, 252, 0.85), /* Brillo extremo al hover */
+        inset 0 0 30px rgba(192, 132, 252, 0.4);
+    filter: brightness(1.2);
+    border-color: rgba(192, 132, 252, 1);
+    z-index: 2;
+}
+
 .gallery-item:hover img {
     filter: grayscale(0) brightness(1.2) contrast(1.1);
-    animation: glitch-main 0.4s 1 linear; /* Vuelve a la normalidad al terminar */
+    animation: glitch-main 0.4s 1 linear;
+    /* Vuelve a la normalidad al terminar */
     transform: scale(1.05);
 }
 
 /* --- Glitch Effect Animations --- */
 @keyframes glitch-main {
-    0% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, -1px); }
-    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 1px); }
-    40% { clip-path: inset(10% 0 80% 0); transform: translate(-1px, -2px); }
-    60% { clip-path: inset(40% 0 50% 0); transform: translate(1px, 2px); }
-    80% { clip-path: inset(80% 0 20% 0); transform: translate(-2px, 1px); }
-    100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+    0% {
+        clip-path: inset(20% 0 30% 0);
+        transform: translate(-2px, -1px);
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px, 1px);
+    }
+
+    40% {
+        clip-path: inset(10% 0 80% 0);
+        transform: translate(-1px, -2px);
+    }
+
+    60% {
+        clip-path: inset(40% 0 50% 0);
+        transform: translate(1px, 2px);
+    }
+
+    80% {
+        clip-path: inset(80% 0 20% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate(0, 0);
+    }
 }
 
 /* --- Lightbox Modal --- */
@@ -390,7 +473,8 @@ nav {
     align-items: center;
 }
 
-.lightbox-content img, .lightbox-content video {
+.lightbox-content img,
+.lightbox-content video {
     max-width: 100%;
     max-height: 85vh;
     object-fit: contain;
@@ -420,7 +504,7 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -457,7 +541,8 @@ nav {
     cursor: pointer;
     padding: 0 40px;
     height: 100%;
-    width: 30%; /* Cubre el 30% de cada lado */
+    width: 30%;
+    /* Cubre el 30% de cada lado */
     display: flex;
     align-items: center;
     transition: var(--transition);
@@ -468,13 +553,13 @@ nav {
 .prev-btn {
     left: 0;
     justify-content: flex-start;
-    background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
 }
 
 .next-btn {
     right: 0;
     justify-content: flex-end;
-    background: linear-gradient(to left, rgba(0,0,0,0.4), transparent);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
 }
 
 .lightbox-btn:hover {
@@ -482,11 +567,11 @@ nav {
 }
 
 .lightbox-btn:hover {
-    background: linear-gradient(to right, rgba(0,0,0,0.6), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
 }
 
 .next-btn:hover {
-    background: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent);
 }
 
 .close-lightbox {
@@ -568,17 +653,17 @@ nav {
 }
 
 .studio-image img {
-    border-radius: 20px;
-    box-shadow: 0 0 60px rgba(192, 132, 252, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    box-shadow: 0 0 50px rgba(192, 132, 252, 0.45); /* Resplandor púrpura potente */
+    border: 2px solid rgba(192, 132, 252, 0.6); /* Borde neón visible */
     transition: var(--transition);
     max-width: 100%;
 }
 
 .studio-image img:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 80px rgba(255, 0, 60, 0.25);
-    border-color: var(--accent-red);
+    box-shadow: 0 0 80px rgba(192, 132, 252, 0.85); /* Brillo extremo al hover */
+    border-color: rgba(192, 132, 252, 1);
 }
 
 /* --- Contact Form --- */
@@ -616,7 +701,8 @@ nav {
     z-index: 0;
 }
 
-.contact-info, .contact-form {
+.contact-info,
+.contact-form {
     position: relative;
     z-index: 1;
 }
@@ -666,7 +752,8 @@ nav {
     gap: 20px;
 }
 
-input, textarea {
+input,
+textarea {
     background: rgba(13, 13, 13, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 15px;
@@ -676,10 +763,12 @@ input, textarea {
     backdrop-filter: blur(5px);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border-color: var(--accent-purple);
-    background: rgba(0, 10, 30, 0.95); /* Azul muy oscuro elegante */
+    background: rgba(0, 10, 30, 0.95);
+    /* Azul muy oscuro elegante */
     box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
 }
 
@@ -752,22 +841,39 @@ footer a:hover {
     .mobile-menu-btn.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 6px);
     }
+
     .mobile-menu-btn.active span:nth-child(2) {
         opacity: 0;
     }
+
     .mobile-menu-btn.active span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -7px);
+    }
+
+    /* Reducir tamaño del logo en móviles para que entre el menú hamburguesa */
+    .logo {
+        font-size: 1.4rem;
+        gap: 8px;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo span {
+        font-size: 0.85rem;
+        margin-top: -5px;
     }
 
     .hero h1 {
         font-size: 20vw;
     }
-    
+
     .hero h2 {
         font-size: 2.5rem;
         margin-top: -30px;
     }
-    
+
     .contact-wrapper {
         grid-template-columns: 1fr;
         padding: 40px 20px;
@@ -783,7 +889,7 @@ footer a:hover {
     .studio-image {
         order: -1;
     }
-    
+
     .hero-btns {
         flex-direction: column;
     }
